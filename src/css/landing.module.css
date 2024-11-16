@@ -1,0 +1,120 @@
+header nav {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.logocom {
+  height: 50px;
+  width: 170px;
+}
+.boxnav {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  --color: #e1e1e1;
+  background-color: #f3f3f3;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+}
+a {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fefefe;
+  text-transform: uppercase;
+  color:blue;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 400px;
+}
+a span {
+  position: relative;
+  z-index: 3;
+}
+
+button {
+  background-color: none;
+  text-decoration: none;
+  border: none;
+}
+.blockone button {
+  transform: scale(0.9);
+}
+button {
+  margin: 20px;
+  transform: scale(0.8);
+}
+.contact {
+  display: flex;
+  margin-left: 17%;
+}
+.contact h1 {
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+h3 {
+  font-family: sans-serif;
+  color: #b5b2b2;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+h4 {
+  font-family: sans-serif;
+  color: #626060;
+}
+footer {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 50px;
+  margin-right: 60px;
+}
