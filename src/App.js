@@ -20,11 +20,11 @@ function App() {
   <Route path='/reports' element={<Reports/>}/>
   <Route path='/appointments' element={<Appointments/>}/>
   <Route path='/home' element={<Home/>}/>
-  <Route path = '/signin1' element = {<Signin1/>}/>
-  <Route path = '/signin2' element = {<Signin2/>}/>
-  <Route path='/login1' element={<Login1/>} />
+  <Route path = '/signin' element = {<Signin1/>}/>
+  <Route path = '/dsignin' element = {<Signin2/>}/>
+  <Route path='/login' element={<Login1/>} />
   <Route path='/dochome' element={<Dochome/>} /> 
-  <Route path='/login2' element={<Login2/>} /> 
+  <Route path='/dlogin' element={<Login2/>} /> 
   <Route path='/uploadoc' element={<Uploadoc/>} /> 
  </Routes>
     </div>

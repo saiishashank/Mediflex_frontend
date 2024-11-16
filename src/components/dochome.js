@@ -27,7 +27,7 @@ function Dochome() {
     <div className="container">
     <nav className='d-flex justify-content-between'>
       <h2 className='m-3'>Mediflex</h2>
-      <button onClick={()=>navigate('/login2')} className='btn btn-primary'>logout</button>
+      <button onClick={()=>navigate('/')} className='btn btn-primary'>logout</button>
     </nav>
       <div className="row">
         <div className="col-md-12">

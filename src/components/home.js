@@ -95,7 +95,7 @@ function Home() {
         <div >
    <img src={img1} alt="" className={`${classes.logo}`}/>
         </div>
-     <button onClick={()=>navigate("/login1")} className={`${classes.logout}`} >Logout</button>
+     <button onClick={()=>navigate("/")} className={`${classes.logout}`} >Logout</button>
   
 </nav>
 <div className={`${classes.outer}`}>
