@@ -1,11 +1,10 @@
-// src/components/Login.js
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import {useForm} from 'react-hook-form'
+import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {useDispatch} from 'react-redux'
-import { adduser } from '../store/slice';
+import { AuthContext } from '../context/AuthContext'; // Import the context
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -49,50 +48,53 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   background-color: #007bff;
-  color:blue ;
+  color: white;
   font-size: 1rem;
   cursor: pointer;
   &:hover {
     background-color: #0056b3;
   }
 `;
-const ErrorMessage = styled.div`
-  color: red;
-  margin-bottom: 1rem;
-`;
 
 const Login1 = () => {
-  const {register,handleSubmit,formState:{errors}}=useForm()
-  const Navigate=useNavigate()
-  const dispatch =useDispatch();
-  const Submit = async (cred) => {
-    dispatch(adduser(cred))
-    let response = await axios.post("https://mediflex.onrender.com/api/user/login",cred)
-    let out=response.data
-    localStorage.setItem('jwt',out.token)
-    console.log(localStorage.getItem("jwt"),out.token)
-    Navigate("/home")
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext); // Get login function from context
 
+  const Submit = async (cred) => {
+    try {
+      const response = await axios.post("http://localhost:8000/api/user/login", cred);
+      
+      const { token, data: { user } } = response.data;
+
+      // Use the context to handle login state and storage
+      login(user, token, 'patient');
+
+      navigate("/home");
+
+    } catch (error) {
+      console.error("User login failed:", error);
+      alert("Login failed. Please check your credentials.");
+    }
   };
 
   return (
     <Container>
       <LoginForm onSubmit={handleSubmit(Submit)}>
-        <Title>Login</Title>
+        <Title>User Login</Title>
         <Input
           type="email"
-          placeholder=" Enter your Email"
-          {...register("email",{required:true})}
+          placeholder="Enter your Email"
+          {...register("email", { required: true })}
         />
-        {errors.Email?.type=="required" && <p className='text-danger'>*Username compulsory</p>}
+        {errors.email && <p className='text-danger'>*Email is required</p>}
         <Input
           type="password"
           placeholder="Password"
-          {...register("password",{required:true})}
+          {...register("password", { required: true })}
         />
-        {errors.Password?.type=="required" && <p className='text-danger'>*Username compulsory</p>}
-        Don't have an account? <Link to="/signin2" >Sign up</Link>
-
+        {errors.password && <p className='text-danger'>*Password is required</p>}
+        <p>Don't have an account? <Link to="/user-signup">Sign up</Link></p>
         <Button type="submit">Login</Button>
       </LoginForm>
     </Container>
