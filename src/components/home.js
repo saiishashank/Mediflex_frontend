@@ -7,7 +7,7 @@ import axios from 'axios';
 import img1 from '../images/logoo.png';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import Uploadoc from './uploadoc'; // Assuming this is the new reports component
+import Uploadoc from './uploadoc'; 
 
 function Home() {
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ function Home() {
 
     const handleAddBpLevel = () => {
         if (!bpLevel) return alert("Please enter a BP value.");
-        axios.patch('http://localhost:8000/api/user/Bp', { bp: bpLevel })
+        axios.patch('https://mediflex.onrender.com/api/user/Bp', { bp: bpLevel })
             .then(res => {
                 alert('BP level updated!');
                 setBpLevel('');
@@ -30,7 +30,7 @@ function Home() {
     
     const handleAddSugarLevel = () => {
         if (!sugarLevel) return alert("Please enter a sugar value.");
-        axios.patch('http://localhost:8000/api/user/Sugar', { sugar: sugarLevel })
+        axios.patch('https://mediflex.onrender.com/api/user/Sugar', { sugar: sugarLevel })
             .then(res => {
                 alert('Sugar level updated!');
                 setSugarLevel('');

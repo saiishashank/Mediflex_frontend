@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://mediflex.onrender.com";
 
 function Uploadoc() {
   const [file, setFile] = useState(null);

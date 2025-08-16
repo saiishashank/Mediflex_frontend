@@ -14,7 +14,7 @@ function Signin1() {
 
   const submit = async (cred) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/user/signup", cred);
+      const response = await axios.post("https://mediflex.onrender.com/api/user/signup", cred);
       const { token, data: { user } } = response.data;
       
       // Use context to log the new user in immediately

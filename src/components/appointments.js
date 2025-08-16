@@ -5,7 +5,8 @@ import Icon from "@mdi/react";
 import { mdiArrowLeft } from "@mdi/js";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:8000";
+//const API_URL = "http://localhost:8000";
+const API_URL = "https://mediflex.onrender.com";
 
 const Appointments = () => {
   const [doctors, setDoctors] = useState([]);

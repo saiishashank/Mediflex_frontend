@@ -63,7 +63,7 @@ const Login1 = () => {
 
   const Submit = async (cred) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/user/login", cred);
+      const response = await axios.post("https://mediflex.onrender.com/api/user/login", cred);
       
       const { token, data: { user } } = response.data;
 
