@@ -14,7 +14,7 @@ useEffect(() => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       try {
         // THIS IS THE FIX: Always call the new unified endpoint
-        const response = await axios.get(`http://localhost:8000/api/auth/me`);
+        const response = await axios.get(`https://mediflex.onrender.com/api/auth/me`);
         
         const userData = response.data.data.data;
         setUser(userData);
